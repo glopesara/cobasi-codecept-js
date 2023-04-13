@@ -7,6 +7,9 @@ module.exports = {
       case 'Login':
         I.click({ android: '//android.widget.TextView[@text="Entre ou cadastre-se"]', ios: '~󰀉 Entre ou cadastre-se Para acessar seus dados 󰅂' })
         break;
+      case "Descontos":
+        I.click({android: '//android.widget.TextView[@text="Meu desconto"]'})
+        I.waitForElement('~Próximo', 5)
       default:
         break;
     }

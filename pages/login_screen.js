@@ -1,13 +1,13 @@
 const { I } = inject();
 
 module.exports = {
-  doLogin(){
+  doLogin(email, pass){
     I.waitForElement('~Acesse sua conta', 5)
     var input = '#text-input-outlined'
-    I.fillField(input, 'gabriel.lopes@cobasi.com.br')
+    I.fillField(input, email)
     I.click('~Continuar')
     I.waitForElement('~Acesse sua conta', 5)
-    I.fillField(input, 'Cobasi@123')
+    I.fillField(input, pass)
     I.click('~Entrar')
   }
 }

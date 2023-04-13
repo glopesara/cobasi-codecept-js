@@ -70,10 +70,10 @@ exports.config = {
   include: {
     I: './steps_file.js',
     homeScreen: './pages/home_screen.js',
-
     menuMaisScreen: "./pages/menu_mais_screen.js",
-
-    loginScreen: "./pages/login_screen.js"
+    loginScreen: "./pages/login_screen.js",
+    descontos_screen: "./pages/descontos_screen.js"
+    
   },
   name: 'cobasi-codeceptjs-js'
 }
