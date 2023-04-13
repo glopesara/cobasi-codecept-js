@@ -11,7 +11,7 @@ Scenario('Realizar login com sucesso | menu mais| Minha Conta', async () => {
     menuMaisScreen.checkLogin()
 });
 
-Scenario.only('Realizar login com sucesso | menu mais| Meu Desconto', async () => {
+Scenario('Realizar login com sucesso | menu mais| Meu Desconto', async () => {
     I.waitForElement('~APP_INPUT_SEARCH', 10)
     homeScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Descontos')
