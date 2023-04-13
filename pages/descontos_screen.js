@@ -16,7 +16,7 @@ module.exports = {
   },
 
   checkLogin() {
-    I.waitForElement('~Todas', 10)
+    I.waitForElement({android: '~Todas', ios: '~Selecione os descontos pela categoria desejada:'}, 10)
   }
 
 }
