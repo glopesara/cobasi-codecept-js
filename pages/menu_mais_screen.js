@@ -20,6 +20,10 @@ module.exports = {
         I.click({ android: '//android.widget.TextView[@text="Agendamento"]', ios: '~󰸗 Agendamento Agende os serviços para seu pet 󰅂' })
         break
 
+      case "Compra Programada":
+        I.click({ android: '//android.widget.TextView[@text="Compra Programada"]', ios: '~Compra Programada Minhas compras programadas 󰅂' })
+        break
+
       default:
         break;
     }
