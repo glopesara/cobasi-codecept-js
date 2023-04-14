@@ -72,8 +72,8 @@ exports.config = {
     homeScreen: './pages/home_screen.js',
     menuMaisScreen: "./pages/menu_mais_screen.js",
     loginScreen: "./pages/login_screen.js",
-    descontos_screen: "./pages/descontos_screen.js"
-    
+    descontos_screen: "./pages/descontos_screen.js",
+    servicos_screen: "./pages/servicos_screen.js"
   },
   name: 'cobasi-codeceptjs-js'
 }
