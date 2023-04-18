@@ -69,12 +69,12 @@ exports.config = {
   },
   include: {
     I: './steps_file.js',
-    homeScreen: './pages/home_screen.js',
-    menuMaisScreen: "./pages/menu_mais_screen.js",
-    loginScreen: "./pages/login_screen.js",
-    descontos_screen: "./pages/descontos_screen.js",
-    servicos_screen: "./pages/servicos_screen.js",
-    compra_programada_screen: "./pages/compra_programada_screen.js"
+    homeScreen: './e2e/support/pages/home_screen.js',
+    menuMaisScreen: "./e2e/support/pages/menu_mais_screen.js",
+    loginScreen: "./e2e/support/pages/login_screen.js",
+    descontos_screen: "./e2e/support/pages/descontos_screen.js",
+    servicos_screen: "./e2e/support/pages/servicos_screen.js",
+    compra_programada_screen: "./e2e/support/pages/compra_programada_screen.js"
   },
   name: 'cobasi-codeceptjs-js'
 }
