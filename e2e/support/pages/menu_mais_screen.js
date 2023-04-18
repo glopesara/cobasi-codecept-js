@@ -11,21 +11,24 @@ module.exports = {
         I.click({ android: '//android.widget.TextView[@text="Entre ou cadastre-se"]', ios: '~󰀉 Entre ou cadastre-se Para acessar seus dados 󰅂' })
         break;
 
-      case "Descontos":
+      case 'Descontos':
         I.click({ android: '//android.widget.TextView[@text="Meu desconto"]', ios: '~Descontos Meu desconto 󰅂' })
         I.waitForElement('~Próximo', 5)
         break
 
-      case "Agendamento":
+      case 'Agendamento':
         I.click({ android: '//android.widget.TextView[@text="Agendamento"]', ios: '~󰸗 Agendamento Agende os serviços para seu pet 󰅂' })
         break
 
-      case "Compra Programada":
+      case 'Compra Programada':
         I.click({ android: '//android.widget.TextView[@text="Compra Programada"]', ios: '~Compra Programada Minhas compras programadas 󰅂' })
         break
 
+      case 'Amigo Cobasi':
+        I.click({ android: '//android.widget.TextView[@text="Amigo Cobasi"]', ios: '~Amigo Cobasi Ganhe pontos nas suas compras 󰅂' })
+        break
       default:
-        break;
+        throw new Error('Menu invalido')
     }
   },
 
