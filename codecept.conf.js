@@ -84,7 +84,7 @@ exports.config = {
   },
   plugins: {
     screenshotOnFail: {
-      enabled: false
+      enabled: true
     }
   },
   mocha: {
