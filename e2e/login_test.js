@@ -22,7 +22,7 @@ Before(() => {
 
 // menu mais
 
-Scenario.only('Realizar login com sucesso | menu mais| Minha Conta', async () => {
+Scenario('Realizar login com sucesso | menu mais| Minha Conta', async () => {
     homeScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Login')
     loginScreen.doLogin('gabriel.lopes@cobasi.com.br', 'Cobasi@123')

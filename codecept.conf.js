@@ -62,10 +62,14 @@ const capabilities = {
 
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
+  name: 'cobasi-codeceptjs-js',
   tests: './e2e/*_test.js',
   output: './output',
   helpers: {
-    Appium: process.env.AMBIENT == 'local' ? capabilities.local : capabilities.browserStack
+    Appium: process.env.AMBIENT == 'local' ? capabilities.local : capabilities.browserStack,
+    Mochawesome: {
+      uniqueScreenshotNames: true
+    }
   },
   include: {
     I: './steps_file.js',
@@ -78,5 +82,14 @@ exports.config = {
     amigo_cobasi_screen: "./e2e/support/pages/amigo_cobasi_screen.js",
     espaco_pet_screen: "./e2e/support/pages/espaco_pet_screen.js"
   },
-  name: 'cobasi-codeceptjs-js'
+  plugins: {
+    screenshotOnFail: {
+      enabled: false
+    }
+  },
+  mocha: {
+    reporterOptions: {
+      reportDir: "output"
+    }
+  },
 }
