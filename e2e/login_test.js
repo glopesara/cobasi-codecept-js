@@ -8,7 +8,8 @@ const { I,
     descontos_screen,
     servicos_screen,
     compra_programada_screen,
-    amigo_cobasi_screen } = inject()
+    amigo_cobasi_screen,
+    espaco_pet_screen } = inject()
 
 Scenario('Realizar login com sucesso | menu mais| Minha Conta', async () => {
     I.waitForElement('~APP_INPUT_SEARCH', 10)
@@ -48,11 +49,20 @@ Scenario('Realizar login com sucesso | menu mais| Compra Programada', async () =
     compra_programada_screen.checkLogin()
 });
 
-Scenario.only('Realizar login com sucesso | menu mais| Amigo Cobasi', async () => {
+Scenario('Realizar login com sucesso | menu mais| Amigo Cobasi', async () => {
     I.waitForElement('~APP_INPUT_SEARCH', 10)
     I.waitForElement({ ios: '~Super Ofertas' }, 10)
     homeScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Amigo Cobasi')
     loginScreen.doLogin('gabriel.lopes@cobasi.com.br', 'Cobasi@123')
     amigo_cobasi_screen.checkLogin()
+})
+
+Scenario('Realizar login com sucesso | menu mais| Espaço Pet', async () => {
+    I.waitForElement('~APP_INPUT_SEARCH', 10)
+    I.waitForElement({ ios: '~Super Ofertas' }, 10)
+    homeScreen.selectTabBars('Mais')
+    menuMaisScreen.selectMenu('Espaço Pet')
+    loginScreen.doLogin('gabriel.lopes@cobasi.com.br', 'Cobasi@123')
+    espaco_pet_screen.checkLogin()
 })

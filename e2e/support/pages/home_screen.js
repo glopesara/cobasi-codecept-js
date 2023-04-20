@@ -6,8 +6,8 @@ module.exports = {
       case 'Mais':
         I.click('~Mais')
         break;
-      default:
-        break;
+        default:
+          throw new Error(`Tab bar "${tabBar}" é invalido`)
     }
   }
   // insert your locators and methods here

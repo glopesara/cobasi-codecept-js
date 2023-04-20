@@ -27,8 +27,12 @@ module.exports = {
       case 'Amigo Cobasi':
         I.click({ android: '//android.widget.TextView[@text="Amigo Cobasi"]', ios: '~Amigo Cobasi Ganhe pontos nas suas compras 󰅂' })
         break
+
+      case 'Espaço Pet':
+        I.click({ android: '//android.widget.TextView[@text="Espaço Pet"]', ios: '󰏩 Espaço Pet Meus pets 󰅂' })
+        break
       default:
-        throw new Error('Menu invalido')
+        throw new Error(`Menu "${menu}" é invalido`)
     }
   },
 
