@@ -9,7 +9,8 @@ const { I,
     servicos_screen,
     compra_programada_screen,
     amigo_cobasi_screen,
-    espaco_pet_screen } = inject()
+    espaco_pet_screen,
+    apis } = inject()
 
 
 Before(() => {
