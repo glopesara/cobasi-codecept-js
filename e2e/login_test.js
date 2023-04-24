@@ -11,9 +11,18 @@ const { I,
     amigo_cobasi_screen,
     espaco_pet_screen } = inject()
 
-Scenario('Realizar login com sucesso | menu mais| Minha Conta', async () => {
+
+Before(() => {
     I.waitForElement('~APP_INPUT_SEARCH', 10)
-    I.waitForElement({ ios: '~Super Ofertas' }, 10)
+
+    I.runOnIOS(() => {
+        I.waitForElement({ ios: '~Super Ofertas' }, 10)
+    })
+})
+
+// menu mais
+
+Scenario('Realizar login com sucesso | menu mais| Minha Conta', async () => {
     homeScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Login')
     loginScreen.doLogin('gabriel.lopes@cobasi.com.br', 'Cobasi@123')
@@ -21,8 +30,6 @@ Scenario('Realizar login com sucesso | menu mais| Minha Conta', async () => {
 });
 
 Scenario('Realizar login com sucesso | menu mais| Meu Desconto', async () => {
-    I.waitForElement('~APP_INPUT_SEARCH', 10)
-    I.waitForElement({ ios: '~Super Ofertas' }, 10)
     homeScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Descontos')
     await descontos_screen.clickProximo()
@@ -32,8 +39,6 @@ Scenario('Realizar login com sucesso | menu mais| Meu Desconto', async () => {
 });
 
 Scenario('Realizar login com sucesso | menu mais| Agendamento', async () => {
-    I.waitForElement('~APP_INPUT_SEARCH', 10)
-    I.waitForElement({ ios: '~Super Ofertas' }, 10)
     homeScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Agendamento')
     loginScreen.doLogin('gabriel.lopes@cobasi.com.br', 'Cobasi@123')
@@ -41,8 +46,6 @@ Scenario('Realizar login com sucesso | menu mais| Agendamento', async () => {
 });
 
 Scenario('Realizar login com sucesso | menu mais| Compra Programada', async () => {
-    I.waitForElement('~APP_INPUT_SEARCH', 10)
-    I.waitForElement({ ios: '~Super Ofertas' }, 10)
     homeScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Compra Programada')
     loginScreen.doLogin('gabriel.lopes@cobasi.com.br', 'Cobasi@123')
@@ -50,8 +53,6 @@ Scenario('Realizar login com sucesso | menu mais| Compra Programada', async () =
 });
 
 Scenario('Realizar login com sucesso | menu mais| Amigo Cobasi', async () => {
-    I.waitForElement('~APP_INPUT_SEARCH', 10)
-    I.waitForElement({ ios: '~Super Ofertas' }, 10)
     homeScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Amigo Cobasi')
     loginScreen.doLogin('gabriel.lopes@cobasi.com.br', 'Cobasi@123')
@@ -59,10 +60,10 @@ Scenario('Realizar login com sucesso | menu mais| Amigo Cobasi', async () => {
 })
 
 Scenario('Realizar login com sucesso | menu mais| Espaço Pet', async () => {
-    I.waitForElement('~APP_INPUT_SEARCH', 10)
-    I.waitForElement({ ios: '~Super Ofertas' }, 10)
     homeScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Espaço Pet')
     loginScreen.doLogin('gabriel.lopes@cobasi.com.br', 'Cobasi@123')
     espaco_pet_screen.checkLogin()
 })
+
+// tab bar

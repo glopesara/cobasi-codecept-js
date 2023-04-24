@@ -38,6 +38,6 @@ module.exports = {
 
   checkLogin() {
     I.waitForElement({ android: '//android.widget.TextView[@text="Meus dados"]', ios: '~Minha conta' }, 10)
-    I.seeElement({ android: '//android.widget.TextView[@text="Meus dados"]', ios: '~Minha conta' })
+    I.seeElement({ android: '//android.widget.TextView[@text="Meus dados"]', ios: '~Minha conta' }, 20)
   }
 }

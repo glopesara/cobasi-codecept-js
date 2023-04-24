@@ -1,13 +1,17 @@
 {
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "android": "AMBIENT='local' PLATFORM='android' UDID='RQCRB01Q33B' DEVICE='s21' VERSION='13' APPPACKAGE='com.root.cobasi.Activities' APPACTIVITY='com.root.cobasi.Activities.MainActivity' npx codeceptjs run --steps",
-    "ios": "AMBIENT='local' PLATFORM='iOS' UDID='814F1047-4710-42CC-9106-1A5CF6F5AC43' DEVICE='iPhone 14 Pro Simulator' VERSION='16.2' APP='/Users/maitha/Library/Developer/Xcode/DerivedData/cobasi-fezwjkpilttpywcjgvlglrqqqclc/Build/Products/Release-iphonesimulator/cobasi.app' npx codeceptjs run --steps",
-    "browser-android": "DEVICE='Google Pixel 3' PLATFORM='android' VERSION='9.0' npx codeceptjs run --steps",
-    "browser-ios": "DEVICE='iPhone 14 Pro' PLATFORM='iOS' VERSION='16' npx codeceptjs run --steps"
+    "android": "AMBIENT='local' PLATFORM='android' UDID='RQCRB01Q33B' DEVICE='s21' VERSION='13' APPPACKAGE='com.root.cobasi.Activities' APPACTIVITY='com.root.cobasi.Activities.MainActivity' npx codeceptjs run --steps --reporter mochawesome",
+    "ios": "AMBIENT='local' PLATFORM='iOS' UDID='814F1047-4710-42CC-9106-1A5CF6F5AC43' DEVICE='iPhone 14 Pro Simulator' VERSION='16.2' APP='/Users/maitha/Library/Developer/Xcode/DerivedData/cobasi-fezwjkpilttpywcjgvlglrqqqclc/Build/Products/Release-iphonesimulator/cobasi.app' npx codeceptjs run --steps --reporter mochawesome",
+    "browser-android": "DEVICE='Google Pixel 3' PLATFORM='android' VERSION='9.0' npx codeceptjs run --steps --reporter mochawesome",
+    "browser-ios": "DEVICE='iPhone 14 Pro' PLATFORM='iOS' VERSION='16' npx codeceptjs run --steps --reporter mochawesome"
   },
   "dependencies": {
     "codeceptjs": "^3.4.1",
+    "mochawesome": "^7.1.3",
     "webdriverio": "^8.8.1"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
   }
 }
