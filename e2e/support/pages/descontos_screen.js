@@ -12,11 +12,12 @@ module.exports = {
   },
 
   clickLogin() {
+    I.waitForElement('~Login', 5)
     I.click('~Login')
   },
 
   checkLogin() {
-    I.waitForElement({android: '~Todas', ios: '~Selecione os descontos pela categoria desejada:'}, 10)
+    I.waitForElement({ android: '~Todas', ios: '~Selecione os descontos pela categoria desejada:' }, 10)
   }
 
 }

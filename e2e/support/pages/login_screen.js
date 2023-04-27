@@ -1,13 +1,16 @@
 const { I } = inject();
 
 module.exports = {
-  doLogin(email, pass){
+  async doLogin(user) {
     I.waitForElement('~Acesse sua conta', 5)
+
     var input = '#text-input-outlined'
-    I.fillField(input, email)
+
+    I.fillField(input, user.email)
     I.click('~Continuar')
+
     I.waitForElement('~Esqueci minha senha', 5)
-    I.fillField(input, pass)
+    I.fillField(input, user.pass)
     I.click('~Entrar')
   }
 }
