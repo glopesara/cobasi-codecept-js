@@ -8,18 +8,26 @@ image: node:16
 pipelines:
   custom:
     manual-run:
-          - step:
-              name: Install Dependencies
-              image: node:16.15.1
-              caches:
-                - node
-              script:
-                - npm install
-          - step:
-              name: Execute test
-              script:
-                - npm run browser-android
-              caches:
-                - node
-              artifacts:
-                - output/**
+      - step:
+          name: Install Dependencies
+          image: node:16.15.1
+          caches:
+            - node
+          script:
+            - npm install
+      - step:
+          name: Execute test android
+          script:
+            - npm run browser-android
+          caches:
+            - node
+          artifacts:
+            - output/**
+      - step:
+          name: Execute test ios
+          script:
+            - npm run browser-ios
+          caches:
+            - node
+          artifacts:
+            - output/**
