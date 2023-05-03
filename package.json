@@ -1,6 +1,7 @@
 {
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "android_windows": "set AMBIENT=local&&set PLATFORM=android&&set UDID=192.168.0.170:5555&&set DEVICE=s21&&set VERSION=13&&set APPPACKAGE=com.root.cobasi.Activities&&set APPACTIVITY=com.root.cobasi.Activities.MainActivity&& npx codeceptjs run --steps --reporter mochawesome",
     "android": "AMBIENT='local' PLATFORM='android' UDID='RQCRB01Q33B' DEVICE='s21' VERSION='13' APPPACKAGE='com.root.cobasi.Activities' APPACTIVITY='com.root.cobasi.Activities.MainActivity' npx codeceptjs run --steps --reporter mochawesome",
     "ios": "AMBIENT='local' PLATFORM='iOS' UDID='814F1047-4710-42CC-9106-1A5CF6F5AC43' DEVICE='iPhone 14 Pro Simulator' VERSION='16.2' APP='/Users/maitha/Library/Developer/Xcode/DerivedData/cobasi-fezwjkpilttpywcjgvlglrqqqclc/Build/Products/Release-iphonesimulator/cobasi.app' npx codeceptjs run --steps --reporter mochawesome",
     "browser-android": "DEVICE='Google Pixel 3' PLATFORM='android' VERSION='9.0' npx codeceptjs run --steps --reporter mochawesome",
