@@ -6,19 +6,21 @@
 image: node:16
 
 pipelines:
-  default:
-    - parallel:
-        - step:
-            name: Build and Test
-            caches:
-              - node
-            script:
-              - npm install
-              - npm test
-        - step:
-            name: Code linting
-            script:
-              - npm install eslint
-              - npx eslint .
-            caches:
-              - node
+  custom:
+    manual-run:
+      - parallel:
+          - step:
+              name: Install Dependencies
+              image: node:16.15.1
+              caches:
+                - node
+              script:
+                - npm install
+          - step:
+              name: Execute test
+              script:
+                - npm run browser-android
+              caches:
+                - node
+              artifacts:
+                - output/**.html
