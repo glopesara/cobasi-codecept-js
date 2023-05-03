@@ -10,24 +10,12 @@ const { I,
     servicos_screen,
     compra_programada_screen,
     amigo_cobasi_screen,
-    espaco_pet_screen } = inject()
+    espaco_pet_screen,
+    hooks } = inject()
 
 
-Before(() => {
-
-    I.wait(3)
-    I.runOnAndroid(async () => {
-        const tap = await I.grabNumberOfVisibleElements('#com.android.permissioncontroller:id/permission_allow_button')
-        if (tap > 0) {
-            I.click('#com.android.permissioncontroller:id/permission_allow_button')
-        }
-    })
-
-    I.waitForElement('~APP_INPUT_SEARCH', 10)
-
-    I.runOnIOS(() => {
-        I.waitForElement({ ios: '~Super Ofertas' }, 10)
-    })
+Before(async () => {
+    await hooks.before()
 })
 
 // menu mais

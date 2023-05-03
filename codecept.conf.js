@@ -82,7 +82,8 @@ exports.config = {
     amigo_cobasi_screen: "./e2e/support/pages/amigo_cobasi_screen.js",
     espaco_pet_screen: "./e2e/support/pages/espaco_pet_screen.js",
     apis: "./e2e/support/helpers/apis.js",
-    scroll: "./e2e/support/helpers/scroll.js"
+    scroll: "./e2e/support/helpers/scroll.js",
+    hooks: "./e2e/support/helpers/hooks.js"
   },
   plugins: {
     screenshotOnFail: {
