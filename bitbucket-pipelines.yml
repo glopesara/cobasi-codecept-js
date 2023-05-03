@@ -1,23 +1,22 @@
 image: node:16.15.1
 
 pipelines:
-  custom:
-    manual-run:
-    "**":
-      - step: &Dependencias
-          name: Install Dependencies
-          image: node:16.15.1
-          caches:
-            - node
-          script:
-            - yarn
+  default:
+  "**":
+    - step: &Dependencias
+        name: Install Dependencies
+        image: node:16.15.1
+        caches:
+          - node
+        script:
+          - yarn
 
-      - step: &e2e
-          name: Executar testes
-          caches:
-            - node
-          image: node:16.15.1
-          script:
-            - npm run browser-android
-          artifacts:
-            - output/**.html
+    - step: &e2e
+        name: Executar testes
+        caches:
+          - node
+        image: node:16.15.1
+        script:
+          - npm run browser-android
+        artifacts:
+          - output/**.html
