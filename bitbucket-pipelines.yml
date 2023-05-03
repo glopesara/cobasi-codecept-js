@@ -22,4 +22,4 @@ pipelines:
               caches:
                 - node
               artifacts:
-                - output/**.html
+                - output/
