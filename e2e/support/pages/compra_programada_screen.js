@@ -2,8 +2,9 @@ const { I } = inject();
 
 module.exports = {
 
-  checkLogin() {
-    I.waitForElement({ android: '//android.widget.TextView[@text="Você não possui compras programadas ativas"]', ios: '//XCUIElementTypeWebView' }, 20)
-    I.waitForElement({ android: '//android.widget.Button[@text="Ver compras programadas canceladas"]' }, 20)
+  async checkLogin() {
+    await I.waitForElement({ android: '//android.widget.TextView[@text="Você não possui compras programadas ativas"]', ios: '//XCUIElementTypeWebView' }, 20)
+    await I.waitForElement({ android: '//android.widget.Button[@text="Ver compras programadas canceladas"]' }, 20)
+    return true
   }
 }
