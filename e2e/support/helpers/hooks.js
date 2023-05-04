@@ -17,5 +17,14 @@ module.exports = {
         if (update > 0) {
             I.click('~Atualizar Depois')
         }
+    },
+
+    testPassedOrFail(testPassed) {
+        if (testPassed === true) {
+            I.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": " Teste realizado com sucesso"}}')
+        }
+        else {
+            I.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "Teste falhou"}}')
+        }
     }
 }

@@ -13,6 +13,7 @@ const { I,
     espaco_pet_screen,
     hooks } = inject()
 
+let testPassed = false
 
 Before(async () => {
     await hooks.before()
@@ -25,6 +26,7 @@ Scenario.only('Realizar login com sucesso | menu mais | Minha Conta', async () =
     menuMaisScreen.selectMenu('Login')
     loginScreen.doLogin(data.user)
     menuMaisScreen.checkLogin()
+    testPassed = true
 });
 
 Scenario('Realizar login com sucesso | menu mais | Meu Desconto', async () => {
@@ -34,6 +36,7 @@ Scenario('Realizar login com sucesso | menu mais | Meu Desconto', async () => {
     descontos_screen.clickLogin()
     loginScreen.doLogin(data.user)
     descontos_screen.checkLogin()
+    testPassed = true
 });
 
 Scenario('Realizar login com sucesso | menu mais | Agendamento', async () => {
@@ -41,6 +44,7 @@ Scenario('Realizar login com sucesso | menu mais | Agendamento', async () => {
     menuMaisScreen.selectMenu('Agendamento')
     loginScreen.doLogin(data.user)
     servicos_screen.checkLogin()
+    testPassed = true
 });
 
 Scenario('Realizar login com sucesso | menu mais | Compra Programada', async () => {
@@ -48,6 +52,7 @@ Scenario('Realizar login com sucesso | menu mais | Compra Programada', async () 
     menuMaisScreen.selectMenu('Compra Programada')
     loginScreen.doLogin(data.user)
     compra_programada_screen.checkLogin()
+    testPassed = true
 });
 
 Scenario('Realizar login com sucesso | menu mais | Amigo Cobasi', async () => {
@@ -55,6 +60,7 @@ Scenario('Realizar login com sucesso | menu mais | Amigo Cobasi', async () => {
     menuMaisScreen.selectMenu('Amigo Cobasi')
     loginScreen.doLogin(data.user)
     amigo_cobasi_screen.checkLogin()
+    testPassed = true
 })
 
 Scenario('Realizar login com sucesso | menu mais | Espaço Pet', async () => {
@@ -62,6 +68,7 @@ Scenario('Realizar login com sucesso | menu mais | Espaço Pet', async () => {
     menuMaisScreen.selectMenu('Espaço Pet')
     await loginScreen.doLogin(data.user)
     espaco_pet_screen.checkLogin()
+    testPassed = true
 })
 
 // tab bar
@@ -72,6 +79,7 @@ Scenario('Realizar login com sucesso | tab bar | Descontos', async () => {
     descontos_screen.clickLogin()
     loginScreen.doLogin(data.user)
     descontos_screen.checkLogin()
+    testPassed = true
 })
 
 Scenario('Realizar login com sucesso | tab bar | Serviços', async () => {
@@ -79,5 +87,12 @@ Scenario('Realizar login com sucesso | tab bar | Serviços', async () => {
     servicos_screen.clickLogin()
     loginScreen.doLogin(data.user)
     servicos_screen.checkLogin()
+    testPassed = true
 })
+
+After(async () => {
+    if (process.env.AMBIENT === 'remote') {
+        hooks.testPassedOrFail(testPassed)
+    }
+});
 

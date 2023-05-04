@@ -38,7 +38,7 @@ const capabilities = {
   },
   'browserStack': {
     automationName: "Appium",
-    app: process.env.PLATFORM == 'android' ? "bs://3ff8d9f8e8ceb1ae34f54289e716f69840a037bb" : 'bs://8f99ae09fcd5de7bc4e79797c3476e28783451c7',
+    app: process.env.PLATFORM == 'android' ? "bs://b681a1e912644375c14aeba344adf1a51b797549" : 'bs://dfd7e66ffbd5c7b9d9d4271c0ea715b635e985fa',
     host: "hub-cloud.browserstack.com",
     port: 4444,
     platform: process.env.PLATFORM,
@@ -47,7 +47,7 @@ const capabilities = {
     device: process.env.DEVICE,
     platformVersion: process.env.VERSION,
     desiredCapabilities: {
-      buildName: "13.4.0",
+      buildName: "16.6.2",
       projectName: "Cobasi",
       locationServicesAuthorized: process.env.PLATFORM == 'iOS' ? true : '',
       locationServicesEnabled: process.env.PLATFORM == 'iOS' ? true : '',
