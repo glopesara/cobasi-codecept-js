@@ -9,6 +9,7 @@ module.exports = {
 
       case 'Descontos':
         I.click('~Descontos')
+        I.waitForElement('~Próximo', 5)
         break
 
       case 'Serviços':

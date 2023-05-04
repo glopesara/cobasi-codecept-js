@@ -2,7 +2,8 @@ const { I } = inject();
 
 module.exports = {
 
-  checkLogin() {
-    I.waitForElement({ android: '//android.widget.TextView[@text="Seus pontos"]', ios: '~Seus pontos' }, 20)
+  async checkLogin() {
+    await I.waitForElement({ android: '//android.widget.TextView[@text="Seus pontos"]', ios: '~Seus pontos' }, 20)
+    return true
   }
 }

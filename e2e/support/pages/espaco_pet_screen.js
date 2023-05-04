@@ -2,7 +2,8 @@ const { I } = inject();
 
 module.exports = {
 
-  checkLogin() {
-    I.waitForElement('~Cadastrar novo pet', 30)
+  async checkLogin() {
+    await I.waitForElement('~Cadastrar novo pet', 30)
+    return true
   }
 }
