@@ -4,7 +4,7 @@ module.exports = {
     async scrollToElement(element) {
         const scroll = () => {
             if (process.env.PLATFORM === 'android') {
-                I.performSwipe({ x: 300, y: 1590 }, { x: 300, y: 200 })
+                I.performSwipe({ x: 300, y: 1590 }, { x: 300, y: 500 })
             }
             else {
                 I.performSwipe({ x: 300, y: 700 }, { x: 300, y: 200 })

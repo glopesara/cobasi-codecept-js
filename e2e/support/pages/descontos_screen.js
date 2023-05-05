@@ -3,7 +3,7 @@ const { I } = inject();
 module.exports = {
 
   async clickProximo() {
-
+    I.waitForElement('~Próximo', 5)
     var element = await I.grabNumberOfVisibleElements('~Próximo');
     while (element > 0) {
       I.click('~Próximo')

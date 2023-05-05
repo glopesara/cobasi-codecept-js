@@ -16,6 +16,9 @@ module.exports = {
         I.click('~Serviços')
         break
 
+      case 'Início':
+        I.click('~Início')
+        break
       default:
         throw new Error(`Tab bar "${tabBar}" é invalido`)
     }

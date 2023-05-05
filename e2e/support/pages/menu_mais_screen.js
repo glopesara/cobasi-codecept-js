@@ -13,7 +13,6 @@ module.exports = {
 
       case 'Descontos':
         I.click({ android: '//android.widget.TextView[@text="Meu desconto"]', ios: '~Descontos Meu desconto 󰅂' })
-        I.waitForElement('~Próximo', 5)
         break
 
       case 'Agendamento':
