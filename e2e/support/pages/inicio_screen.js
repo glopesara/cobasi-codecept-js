@@ -26,13 +26,22 @@ module.exports = {
   },
 
   async clickCompraProgramada() {
-    const elementToScroll = process.env.PLATFORM === 'android' ?
+    const element = process.env.PLATFORM === 'android' ?
       '//android.widget.TextView[@text="Compra Programada"]'
       : '(//XCUIElementTypeOther[@name="LongCardContainer"])[3]'
 
     I.waitForElement({ android: '~Acessar Espaço Pet', ios: '(//XCUIElementTypeOther[@name="CompactCardButton"])[1]' }, 5)
-    await scroll.scrollToElement(elementToScroll)
-    I.click(elementToScroll)
+    await scroll.scrollToElement(element)
+    I.click(element)
+  },
+
+  async clickMinhaConta() {
+    const element = process.env.PLATFORM === 'android' ?
+      '//android.widget.TextView[@text="Minha Conta"]'
+      : '(//XCUIElementTypeOther[@name="LongCardTitle LongCardDescription"])[3]'
+    I.waitForElement({ android: '~Acessar Espaço Pet', ios: '(//XCUIElementTypeOther[@name="CompactCardButton"])[1]' }, 5)
+    await scroll.scrollToElement(element)
+    I.click(element)
   }
 
 }

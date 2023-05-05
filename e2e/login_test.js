@@ -12,6 +12,7 @@ const { I,
     amigo_cobasi_screen,
     espaco_pet_screen,
     inicio_screen,
+    meus_dados_screen,
     hooks } = inject()
 
 let testPassed = false
@@ -123,6 +124,13 @@ Scenario('Realizar login com sucesso | Início | Compra programada', async () =>
     await inicio_screen.clickCompraProgramada()
     loginScreen.doLogin(data.user)
     testPassed = await compra_programada_screen.checkLogin()
+})
+
+Scenario('Realizar login com sucesso | Início | Minha compra', async () => {
+    homeScreen.selectTabBars('Início')
+    await inicio_screen.clickMinhaConta()
+    loginScreen.doLogin(data.user)
+    testPassed = await meus_dados_screen.checkLogin()
 })
 
 After(async () => {

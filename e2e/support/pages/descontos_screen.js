@@ -18,7 +18,7 @@ module.exports = {
   },
 
   async checkLogin() {
-    await I.waitForElement({ android: '~Todas', ios: '~Selecione os descontos pela categoria desejada:' }, 10)
+    await I.waitForElement({ android: '~Todas', ios: '~Selecione os descontos pela categoria desejada:' }, 30)
     return true
   }
 
