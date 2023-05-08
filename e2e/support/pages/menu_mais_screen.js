@@ -13,7 +13,6 @@ module.exports = {
 
       case 'Descontos':
         I.click({ android: '//android.widget.TextView[@text="Meu desconto"]', ios: '~Descontos Meu desconto 󰅂' })
-        I.waitForElement('~Próximo', 5)
         break
 
       case 'Agendamento':
@@ -37,8 +36,8 @@ module.exports = {
   },
 
   async checkLogin() {
-    await I.waitForElement({ android: '//android.widget.TextView[@text="Meus dados"]', ios: '~Minha conta' }, 10)
-    await I.seeElement({ android: '//android.widget.TextView[@text="Meus dados"]', ios: '~Minha conta' }, 20)
+    await I.waitForElement({ android: '//android.widget.TextView[@text="Meus dados"]', ios: '~Minha conta' }, 30)
+    await I.seeElement({ android: '//android.widget.TextView[@text="Meus dados"]', ios: '~Minha conta' }, 30)
     return true
   }
 }

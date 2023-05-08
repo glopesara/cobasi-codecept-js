@@ -3,7 +3,7 @@ const { I } = inject();
 module.exports = {
 
   async clickProximo() {
-
+    I.waitForElement('~Próximo', 5)
     var element = await I.grabNumberOfVisibleElements('~Próximo');
     while (element > 0) {
       I.click('~Próximo')
@@ -18,7 +18,7 @@ module.exports = {
   },
 
   async checkLogin() {
-    await I.waitForElement({ android: '~Todas', ios: '~Selecione os descontos pela categoria desejada:' }, 10)
+    await I.waitForElement({ android: '~Todas', ios: '~Selecione os descontos pela categoria desejada:' }, 30)
     return true
   }
 

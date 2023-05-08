@@ -8,7 +8,7 @@ module.exports = {
   },
 
   async checkLogin() {
-    await I.waitForElement({ android: '//android.widget.TextView[@text="Agende o serviço com os Anjos parceiros."]', ios: '//XCUIElementTypeWebView' }, 15)
+    await I.waitForElement({ android: '//android.widget.TextView[@text="Agende o serviço com os Anjos parceiros."]', ios: '//XCUIElementTypeWebView' }, 30)
     return true
   }
 

@@ -81,9 +81,13 @@ exports.config = {
     compra_programada_screen: "./e2e/support/pages/compra_programada_screen.js",
     amigo_cobasi_screen: "./e2e/support/pages/amigo_cobasi_screen.js",
     espaco_pet_screen: "./e2e/support/pages/espaco_pet_screen.js",
+    inicio_screen: "./e2e/support/pages/inicio_screen.js",
+    meus_dados_screen: "./e2e/support/pages/meus_dados_screen.js",
     apis: "./e2e/support/helpers/apis.js",
     scroll: "./e2e/support/helpers/scroll.js",
-    hooks: "./e2e/support/helpers/hooks.js"
+    hooks: "./e2e/support/helpers/hooks.js",
+
+
   },
   plugins: {
     screenshotOnFail: {
