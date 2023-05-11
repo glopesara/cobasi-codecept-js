@@ -1,4 +1,4 @@
-const { I } = inject();
+const { I, scroll } = inject();
 
 module.exports = {
   selectMenu(menu) {
@@ -26,15 +26,28 @@ module.exports = {
         break
 
       case 'Compra Programada':
-        I.click({ android: '//android.widget.TextView[@text="Compra Programada"]', ios: '~Compra Programada Minhas compras programadas 󰅂' })
+        {
+          const element = locate('(//android.view.ViewGroup[@content-desc="ServiceItem"])[4]')
+          I.click({ android: element, ios: '(//XCUIElementTypeOther[@name="ServiceItem"])[4]' })
+        }
+
         break
 
       case 'Amigo Cobasi':
-        I.click({ android: '//android.widget.TextView[@text="Amigo Cobasi"]', ios: '~Amigo Cobasi Ganhe pontos nas suas compras 󰅂' })
+        {
+          const element = locate('(//android.view.ViewGroup[@content-desc="ServiceItem"])[5]')
+          I.click({ android: element, ios: '(//XCUIElementTypeOther[@name="ServiceItem"])[5]' })
+        }
         break
 
       case 'Espaço Pet':
-        I.click({ android: '//android.widget.TextView[@text="Espaço Pet"]', ios: '󰏩 Espaço Pet Meus pets 󰅂' })
+        {
+          const element = process.env.PLATFORM === 'android '
+            ? locate('(//android.view.ViewGroup[@content-desc="ServiceItem"])[6]')
+            : '(//XCUIElementTypeOther[@name="ServiceItem"])[6]'
+          scroll.scrollToElement(element)
+          I.click(element)
+        }
         break
       default:
         throw new Error(`Menu "${menu}" é invalido`)
