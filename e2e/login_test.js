@@ -133,7 +133,7 @@ Scenario('Realizar login com sucesso | Início | Minha compra', async () => {
 })
 
 After(async () => {
-    if (process.env.AMBIENT === 'remote') {
+    if (process.env.AMBIENT === 'local-ios' || 'local-android') {
         hooks.testPassedOrFail(testPassed)
     }
 
