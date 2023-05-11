@@ -12,7 +12,8 @@ module.exports = {
         break;
 
       case 'Descontos':
-        I.click({ android: '//android.widget.TextView[@text="Meu desconto"]', ios: '~Descontos Meu desconto 󰅂' })
+        const element = locate('(//android.view.ViewGroup[@content-desc="ServiceItem"])[1]')
+        I.click({ android: element, ios: '(//XCUIElementTypeOther[@name="ServiceItem"])[1]' })
         break
 
       case 'Agendamento':

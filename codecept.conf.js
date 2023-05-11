@@ -39,8 +39,6 @@ exports.config = {
     apis: "./e2e/support/helpers/apis.js",
     scroll: "./e2e/support/helpers/scroll.js",
     hooks: "./e2e/support/helpers/hooks.js",
-
-
   },
   plugins: {
     screenshotOnFail: {

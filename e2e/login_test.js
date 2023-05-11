@@ -23,14 +23,14 @@ Before(async () => {
 
 // menu mais
 
-Scenario.only('Realizar login com sucesso | menu mais | Minha Conta', async () => {
+Scenario('Realizar login com sucesso | menu mais | Minha Conta', async () => {
     homeScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Login')
     loginScreen.doLogin(data.user)
     testPassed = await menuMaisScreen.checkLogin()
 });
 
-Scenario('Realizar login com sucesso | menu mais | Meu Desconto', async () => {
+Scenario.only('Realizar login com sucesso | menu mais | Meu Desconto', async () => {
     homeScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Descontos')
     await descontos_screen.clickProximo()
