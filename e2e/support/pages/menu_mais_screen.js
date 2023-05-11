@@ -1,7 +1,7 @@
 const { I, scroll } = inject();
 
 module.exports = {
-  selectMenu(menu) {
+  async selectMenu(menu) {
 
     I.waitForElement('~Service.Title', 10)
 
@@ -42,10 +42,10 @@ module.exports = {
 
       case 'Espaço Pet':
         {
-          const element = process.env.PLATFORM === 'android '
-            ? locate('(//android.view.ViewGroup[@content-desc="ServiceItem"])[6]')
+          const element = process.env.PLATFORM == 'android'
+            ? '//android.view.ViewGroup[@content-desc="ServiceItem"][6]'
             : '(//XCUIElementTypeOther[@name="ServiceItem"])[6]'
-          scroll.scrollToElement(element)
+          await scroll.scrollToElement(element)
           I.click(element)
         }
         break

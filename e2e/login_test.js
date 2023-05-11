@@ -62,7 +62,7 @@ Scenario('Realizar login com sucesso | menu mais | Agendamento', async () => {
 
 Scenario('Realizar login com sucesso | menu mais | Espaço Pet', async () => {
     homeScreen.selectTabBars('Mais')
-    menuMaisScreen.selectMenu('Espaço Pet')
+    await menuMaisScreen.selectMenu('Espaço Pet')
     await loginScreen.doLogin(data.user)
     testPassed = await espaco_pet_screen.checkLogin()
 
