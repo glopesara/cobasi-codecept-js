@@ -87,7 +87,6 @@ Scenario('Realizar login com sucesso | tab bar | Serviços', async () => {
 
 // Início
 
-// só android
 Scenario('Realizar login com sucesso | Início | Espaço pet', async () => {
     homeScreen.selectTabBars('Início')
     inicio_screen.clickAcessarEspacoPet()
