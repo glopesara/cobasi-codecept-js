@@ -2,6 +2,9 @@ const {
   setHeadlessWhen,
   setCommonPlugins
 } = require('@codeceptjs/configure');
+
+const capabilities = require('./e2e/support/helpers/capabilities')
+
 // turn on headless mode when running with HEADLESS=true environment variable
 // export HEADLESS=true && npx codeceptjs run
 setHeadlessWhen(process.env.HEADLESS);
@@ -10,63 +13,13 @@ setHeadlessWhen(process.env.HEADLESS);
 setCommonPlugins();
 
 
-const user = 'gabriel_7zZvEK'
-const acess_key = 'hHNsiL3rh88tP13EApsW'
-
-
-const capabilities = {
-  'local': {
-    platform: process.env.PLATFORM,
-    app: process.env.APP ? process.env.APP : '',
-    desiredCapabilities: {
-      platformVersion: process.env.VERSION,
-      udid: process.env.UDID,
-      deviceName: process.env.DEVICE,
-
-      appPackage: process.env.PLATFORM == 'android' ? process.env.APPPACKAGE : '',
-      appActivity: process.env.PLATFORM == 'android' ? process.env.APPACTIVITY : '',
-      unicodeKeyboard: process.env.PLATFORM == 'android' ? true : '',
-      resetKeyboard: process.env.PLATFORM == 'android' ? true : '',
-
-      newCommandTimeout: process.env.PLATFORM == 'iOS' ? "100000" : '',
-      adbExecTimeout: process.env.PLATFORM == 'iOS' ? "100000" : '',
-      locationServicesAuthorized: process.env.PLATFORM == 'iOS' ? true : '',
-      locationServicesEnabled: process.env.PLATFORM == 'iOS' ? true : '',
-      autoAcceptAlerts: process.env.PLATFORM == 'iOS' ? true : '',
-      autoDismissAlerts: process.env.PLATFORM == 'iOS' ? false : '',
-    }
-  },
-  'browserStack': {
-    automationName: "Appium",
-    app: process.env.PLATFORM == 'android' ? "bs://b681a1e912644375c14aeba344adf1a51b797549" : 'bs://dfd7e66ffbd5c7b9d9d4271c0ea715b635e985fa',
-    host: "hub-cloud.browserstack.com",
-    port: 4444,
-    platform: process.env.PLATFORM,
-    user: user,
-    key: acess_key,
-    device: process.env.DEVICE,
-    platformVersion: process.env.VERSION,
-    desiredCapabilities: {
-      buildName: "16.6.2",
-      projectName: "Cobasi",
-      locationServicesAuthorized: process.env.PLATFORM == 'iOS' ? true : '',
-      locationServicesEnabled: process.env.PLATFORM == 'iOS' ? true : '',
-      autoAcceptAlerts: process.env.PLATFORM == 'iOS' ? true : '',
-      autoDismissAlerts: process.env.PLATFORM == 'iOS' ? false : '',
-    }
-  }
-}
-
-
-
-
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
   name: 'cobasi-codeceptjs-js',
   tests: './e2e/*_test.js',
   output: './output',
   helpers: {
-    Appium: process.env.AMBIENT == 'local' ? capabilities.local : capabilities.browserStack,
+    Appium: capabilities.loaderCapabilities(),
     Mochawesome: {
       uniqueScreenshotNames: true
     }

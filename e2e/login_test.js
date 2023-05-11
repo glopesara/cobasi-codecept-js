@@ -23,7 +23,7 @@ Before(async () => {
 
 // menu mais
 
-Scenario('Realizar login com sucesso | menu mais | Minha Conta', async () => {
+Scenario.only('Realizar login com sucesso | menu mais | Minha Conta', async () => {
     homeScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Login')
     loginScreen.doLogin(data.user)

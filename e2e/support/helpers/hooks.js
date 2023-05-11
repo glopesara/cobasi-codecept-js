@@ -2,8 +2,8 @@ const { I } = inject();
 
 module.exports = {
     async before() {
-        I.wait(3)
         I.runOnAndroid(async () => {
+            I.wait(3)
             const tap = await I.grabNumberOfVisibleElements('#com.android.permissioncontroller:id/permission_allow_button')
             if (tap > 0) {
                 I.click('#com.android.permissioncontroller:id/permission_allow_button')

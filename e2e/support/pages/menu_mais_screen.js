@@ -3,12 +3,12 @@ const { I } = inject();
 module.exports = {
   selectMenu(menu) {
 
-    I.waitForElement({ android: '//android.widget.TextView[@text="Meu desconto"]', ios: '~Descontos Meu desconto 󰅂' }, 10)
+    I.waitForElement({ android: '~Service.Title', ios: '//XCUIElementTypeStaticText[@name="Service.Title"]' }, 10)
 
     switch (menu) {
 
       case 'Login':
-        I.click({ android: '//android.widget.TextView[@text="Entre ou cadastre-se"]', ios: '~󰀉 Entre ou cadastre-se Para acessar seus dados 󰅂' })
+        I.click('~default_cards_Entre ou cadastre-se')
         break;
 
       case 'Descontos':
