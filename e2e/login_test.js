@@ -30,7 +30,7 @@ Scenario('Realizar login com sucesso | menu mais | Minha Conta', async () => {
     testPassed = await menuMaisScreen.checkLogin()
 });
 
-Scenario.only('Realizar login com sucesso | menu mais | Meu Desconto', async () => {
+Scenario('Realizar login com sucesso | menu mais | Meu Desconto', async () => {
     homeScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Descontos')
     await descontos_screen.clickProximo()

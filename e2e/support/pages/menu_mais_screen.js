@@ -3,7 +3,7 @@ const { I } = inject();
 module.exports = {
   selectMenu(menu) {
 
-    I.waitForElement({ android: '~Service.Title', ios: '//XCUIElementTypeStaticText[@name="Service.Title"]' }, 10)
+    I.waitForElement('~Service.Title', 10)
 
     switch (menu) {
 
@@ -12,12 +12,17 @@ module.exports = {
         break;
 
       case 'Descontos':
-        const element = locate('(//android.view.ViewGroup[@content-desc="ServiceItem"])[1]')
-        I.click({ android: element, ios: '(//XCUIElementTypeOther[@name="ServiceItem"])[1]' })
+        {
+          const element = locate('(//android.view.ViewGroup[@content-desc="ServiceItem"])[1]')
+          I.click({ android: element, ios: '(//XCUIElementTypeOther[@name="ServiceItem"])[1]' })
+        }
         break
 
       case 'Agendamento':
-        I.click({ android: '//android.widget.TextView[@text="Agendamento"]', ios: '~󰸗 Agendamento Agende os serviços para seu pet 󰅂' })
+        {
+          const element = locate('(//android.view.ViewGroup[@content-desc="ServiceItem"])[3]')
+          I.click({ android: element, ios: '(//XCUIElementTypeOther[@name="ServiceItem"])[3]' })
+        }
         break
 
       case 'Compra Programada':
