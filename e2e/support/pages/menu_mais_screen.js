@@ -1,34 +1,53 @@
-const { I } = inject();
+const { I, scroll } = inject();
 
 module.exports = {
-  selectMenu(menu) {
+  async selectMenu(menu) {
 
-    I.waitForElement({ android: '//android.widget.TextView[@text="Meu desconto"]', ios: '~Descontos Meu desconto 󰅂' }, 10)
+    I.waitForElement('~Service.Title', 10)
 
     switch (menu) {
 
       case 'Login':
-        I.click({ android: '//android.widget.TextView[@text="Entre ou cadastre-se"]', ios: '~󰀉 Entre ou cadastre-se Para acessar seus dados 󰅂' })
+        I.click('~default_cards_Entre ou cadastre-se')
         break;
 
       case 'Descontos':
-        I.click({ android: '//android.widget.TextView[@text="Meu desconto"]', ios: '~Descontos Meu desconto 󰅂' })
+        {
+          const element = locate('(//android.view.ViewGroup[@content-desc="ServiceItem"])[1]')
+          I.click({ android: element, ios: '(//XCUIElementTypeOther[@name="ServiceItem"])[1]' })
+        }
         break
 
       case 'Agendamento':
-        I.click({ android: '//android.widget.TextView[@text="Agendamento"]', ios: '~󰸗 Agendamento Agende os serviços para seu pet 󰅂' })
+        {
+          const element = locate('(//android.view.ViewGroup[@content-desc="ServiceItem"])[3]')
+          I.click({ android: element, ios: '(//XCUIElementTypeOther[@name="ServiceItem"])[3]' })
+        }
         break
 
       case 'Compra Programada':
-        I.click({ android: '//android.widget.TextView[@text="Compra Programada"]', ios: '~Compra Programada Minhas compras programadas 󰅂' })
+        {
+          const element = locate('(//android.view.ViewGroup[@content-desc="ServiceItem"])[4]')
+          I.click({ android: element, ios: '(//XCUIElementTypeOther[@name="ServiceItem"])[4]' })
+        }
+
         break
 
       case 'Amigo Cobasi':
-        I.click({ android: '//android.widget.TextView[@text="Amigo Cobasi"]', ios: '~Amigo Cobasi Ganhe pontos nas suas compras 󰅂' })
+        {
+          const element = locate('(//android.view.ViewGroup[@content-desc="ServiceItem"])[5]')
+          I.click({ android: element, ios: '(//XCUIElementTypeOther[@name="ServiceItem"])[5]' })
+        }
         break
 
       case 'Espaço Pet':
-        I.click({ android: '//android.widget.TextView[@text="Espaço Pet"]', ios: '󰏩 Espaço Pet Meus pets 󰅂' })
+        {
+          const element = process.env.PLATFORM == 'android'
+            ? '//android.view.ViewGroup[@content-desc="ServiceItem"][6]'
+            : '(//XCUIElementTypeOther[@name="ServiceItem"])[6]'
+          await scroll.scrollToElement(element)
+          I.click(element)
+        }
         break
       default:
         throw new Error(`Menu "${menu}" é invalido`)

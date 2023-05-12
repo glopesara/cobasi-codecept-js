@@ -4,8 +4,8 @@ const { I } = inject();
 module.exports = {
 
   clickAcessarEspacoPet() {
-    I.waitForElement('~Acessar Espaço Pet', 5)
-    I.click('~Acessar Espaço Pet')
+    I.waitForElement({ android: '~Acessar Espaço Pet', ios: '~LongCardButton' }, 5)
+    I.click({ android: '~Acessar Espaço Pet', ios: '~LongCardButton' })
   },
 
   clickAgendar() {

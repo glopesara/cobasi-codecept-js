@@ -62,7 +62,7 @@ Scenario('Realizar login com sucesso | menu mais | Amigo Cobasi', async () => {
 
 Scenario('Realizar login com sucesso | menu mais | Espaço Pet', async () => {
     homeScreen.selectTabBars('Mais')
-    menuMaisScreen.selectMenu('Espaço Pet')
+    await menuMaisScreen.selectMenu('Espaço Pet')
     await loginScreen.doLogin(data.user)
     testPassed = await espaco_pet_screen.checkLogin()
 
@@ -87,7 +87,6 @@ Scenario('Realizar login com sucesso | tab bar | Serviços', async () => {
 
 // Início
 
-// só android
 Scenario('Realizar login com sucesso | Início | Espaço pet', async () => {
     homeScreen.selectTabBars('Início')
     inicio_screen.clickAcessarEspacoPet()
@@ -134,7 +133,7 @@ Scenario('Realizar login com sucesso | Início | Minha compra', async () => {
 })
 
 After(async () => {
-    if (process.env.AMBIENT === 'remote') {
+    if (process.env.AMBIENT === 'remote-android' || process.env.AMBIENT === 'remote-ios') {
         hooks.testPassedOrFail(testPassed)
     }
 
