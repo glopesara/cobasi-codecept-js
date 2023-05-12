@@ -3,16 +3,16 @@ const data = require('./support/fixtures/users.json');
 Feature('login');
 
 const { I,
-    homeScreen,
+    comprarScreen,
     menuMaisScreen,
     loginScreen,
-    descontos_screen,
-    servicos_screen,
-    compra_programada_screen,
-    amigo_cobasi_screen,
-    espaco_pet_screen,
-    inicio_screen,
-    meus_dados_screen,
+    descontosScreen,
+    servicosScreen,
+    compraProgramadaScreen,
+    amigoCobasiScreen,
+    espacoPetScreen,
+    inicioScreen,
+    meusDadosScreen,
     hooks } = inject()
 
 let testPassed = false
@@ -24,112 +24,112 @@ Before(async () => {
 // menu mais
 
 Scenario('Realizar login com sucesso | menu mais | Minha Conta', async () => {
-    homeScreen.selectTabBars('Mais')
+    comprarScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Login')
     loginScreen.doLogin(data.user)
     testPassed = await menuMaisScreen.checkLogin()
 });
 
 Scenario('Realizar login com sucesso | menu mais | Meu Desconto', async () => {
-    homeScreen.selectTabBars('Mais')
+    comprarScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Descontos')
-    await descontos_screen.clickProximo()
-    descontos_screen.clickLogin()
+    await descontosScreen.clickProximo()
+    descontosScreen.clickLogin()
     loginScreen.doLogin(data.user)
-    testPassed = await descontos_screen.checkLogin()
+    testPassed = await descontosScreen.checkLogin()
 });
 
 Scenario('Realizar login com sucesso | menu mais | Agendamento', async () => {
-    homeScreen.selectTabBars('Mais')
+    comprarScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Agendamento')
     loginScreen.doLogin(data.user)
-    testPassed = await servicos_screen.checkLogin()
+    testPassed = await servicosScreen.checkLogin()
 });
 
 Scenario('Realizar login com sucesso | menu mais | Compra Programada', async () => {
-    homeScreen.selectTabBars('Mais')
+    comprarScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Compra Programada')
     loginScreen.doLogin(data.user)
-    testPassed = await compra_programada_screen.checkLogin()
+    testPassed = await compraProgramadaScreen.checkLogin()
 });
 
 Scenario('Realizar login com sucesso | menu mais | Amigo Cobasi', async () => {
-    homeScreen.selectTabBars('Mais')
+    comprarScreen.selectTabBars('Mais')
     menuMaisScreen.selectMenu('Amigo Cobasi')
     loginScreen.doLogin(data.user)
-    testPassed = await amigo_cobasi_screen.checkLogin()
+    testPassed = await amigoCobasiScreen.checkLogin()
 })
 
 Scenario('Realizar login com sucesso | menu mais | Espaço Pet', async () => {
-    homeScreen.selectTabBars('Mais')
+    comprarScreen.selectTabBars('Mais')
     await menuMaisScreen.selectMenu('Espaço Pet')
     await loginScreen.doLogin(data.user)
-    testPassed = await espaco_pet_screen.checkLogin()
+    testPassed = await espacoPetScreen.checkLogin()
 
 })
 
 // tab bar
 
 Scenario('Realizar login com sucesso | tab bar | Descontos', async () => {
-    homeScreen.selectTabBars('Descontos')
-    await descontos_screen.clickProximo()
-    descontos_screen.clickLogin()
+    comprarScreen.selectTabBars('Descontos')
+    await descontosScreen.clickProximo()
+    descontosScreen.clickLogin()
     loginScreen.doLogin(data.user)
-    testPassed = await descontos_screen.checkLogin()
+    testPassed = await descontosScreen.checkLogin()
 })
 
 Scenario('Realizar login com sucesso | tab bar | Serviços', async () => {
-    homeScreen.selectTabBars('Serviços')
-    servicos_screen.clickLogin()
+    comprarScreen.selectTabBars('Serviços')
+    servicosScreen.clickLogin()
     loginScreen.doLogin(data.user)
-    testPassed = await servicos_screen.checkLogin()
+    testPassed = await servicosScreen.checkLogin()
 })
 
 // Início
 
 Scenario('Realizar login com sucesso | Início | Espaço pet', async () => {
-    homeScreen.selectTabBars('Início')
-    inicio_screen.clickAcessarEspacoPet()
+    comprarScreen.selectTabBars('Início')
+    inicioScreen.clickAcessarEspacoPet()
     loginScreen.doLogin(data.user)
-    testPassed = await espaco_pet_screen.checkLogin()
+    testPassed = await espacoPetScreen.checkLogin()
 })
 
 Scenario('Realizar login com sucesso | Início | Agendar', async () => {
-    homeScreen.selectTabBars('Início')
-    inicio_screen.clickAgendar()
-    servicos_screen.clickLogin()
+    comprarScreen.selectTabBars('Início')
+    inicioScreen.clickAgendar()
+    servicosScreen.clickLogin()
     loginScreen.doLogin(data.user)
-    testPassed = await servicos_screen.checkLogin()
+    testPassed = await servicosScreen.checkLogin()
 })
 
 Scenario('Realizar login com sucesso | Início | Amigo Cobasi', async () => {
-    homeScreen.selectTabBars('Início')
-    inicio_screen.clickAmigoCobasi()
+    comprarScreen.selectTabBars('Início')
+    inicioScreen.clickAmigoCobasi()
     loginScreen.doLogin(data.user)
-    testPassed = await amigo_cobasi_screen.checkLogin()
+    testPassed = await amigoCobasiScreen.checkLogin()
 })
 
 Scenario('Realizar login com sucesso | Início | Meu Desconto', async () => {
-    homeScreen.selectTabBars('Início')
-    inicio_screen.clickMeuDesconto()
-    await descontos_screen.clickProximo()
-    descontos_screen.clickLogin()
+    comprarScreen.selectTabBars('Início')
+    inicioScreen.clickMeuDesconto()
+    await descontosScreen.clickProximo()
+    descontosScreen.clickLogin()
     loginScreen.doLogin(data.user)
-    testPassed = await descontos_screen.checkLogin()
+    testPassed = await descontosScreen.checkLogin()
 })
 
 Scenario('Realizar login com sucesso | Início | Compra programada', async () => {
-    homeScreen.selectTabBars('Início')
-    await inicio_screen.clickCompraProgramada()
+    comprarScreen.selectTabBars('Início')
+    await inicioScreen.clickCompraProgramada()
     loginScreen.doLogin(data.user)
-    testPassed = await compra_programada_screen.checkLogin()
+    testPassed = await compraProgramadaScreen.checkLogin()
 })
 
 Scenario('Realizar login com sucesso | Início | Minha compra', async () => {
-    homeScreen.selectTabBars('Início')
-    await inicio_screen.clickMinhaConta()
+    comprarScreen.selectTabBars('Início')
+    await inicioScreen.clickMinhaConta()
     loginScreen.doLogin(data.user)
-    testPassed = await meus_dados_screen.checkLogin()
+    testPassed = await meusDadosScreen.checkLogin()
 })
 
 After(async () => {
