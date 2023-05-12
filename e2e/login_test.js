@@ -45,20 +45,20 @@ Scenario('Realizar login com sucesso | menu mais | Agendamento', async () => {
     loginScreen.doLogin(data.user)
     testPassed = await servicos_screen.checkLogin()
 });
-// bug AES-1899
-// Scenario('Realizar login com sucesso | menu mais | Compra Programada', async () => {
-//     homeScreen.selectTabBars('Mais')
-//     menuMaisScreen.selectMenu('Compra Programada')
-//     loginScreen.doLogin(data.user)
-//     testPassed = await compra_programada_screen.checkLogin()
-// });
-// bug AES-1900
-// Scenario('Realizar login com sucesso | menu mais | Amigo Cobasi', async () => {
-//     homeScreen.selectTabBars('Mais')
-//     menuMaisScreen.selectMenu('Amigo Cobasi')
-//     loginScreen.doLogin(data.user)
-//     testPassed = await amigo_cobasi_screen.checkLogin()
-// })
+
+Scenario('Realizar login com sucesso | menu mais | Compra Programada', async () => {
+    homeScreen.selectTabBars('Mais')
+    menuMaisScreen.selectMenu('Compra Programada')
+    loginScreen.doLogin(data.user)
+    testPassed = await compra_programada_screen.checkLogin()
+});
+
+Scenario('Realizar login com sucesso | menu mais | Amigo Cobasi', async () => {
+    homeScreen.selectTabBars('Mais')
+    menuMaisScreen.selectMenu('Amigo Cobasi')
+    loginScreen.doLogin(data.user)
+    testPassed = await amigo_cobasi_screen.checkLogin()
+})
 
 Scenario('Realizar login com sucesso | menu mais | Espaço Pet', async () => {
     homeScreen.selectTabBars('Mais')
@@ -133,7 +133,7 @@ Scenario('Realizar login com sucesso | Início | Minha compra', async () => {
 })
 
 After(async () => {
-    if (process.env.AMBIENT === 'local-ios' || 'local-android') {
+    if (process.env.AMBIENT === 'remote-android' || process.env.AMBIENT === 'remote-ios') {
         hooks.testPassedOrFail(testPassed)
     }
 

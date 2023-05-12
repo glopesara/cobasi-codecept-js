@@ -16,6 +16,7 @@ module.exports = {
         const update = await I.grabNumberOfVisibleElements('~Atualizar Depois')
         if (update > 0) {
             I.click('~Atualizar Depois')
+            I.waitForElement('~APP_INPUT_SEARCH', 10)
         }
     },
 
