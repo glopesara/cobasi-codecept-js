@@ -50,6 +50,12 @@ module.exports = {
           waitAndClickElement(element)
         }
         break;
+      case 'Espaço Pet':
+        {
+          const element = '~Espaço\nPet'
+          waitAndClickElement(element)
+        }
+        break;
 
       default:
         throw new Error(`O menu "${option}" é invalido`)
