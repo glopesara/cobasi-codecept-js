@@ -44,6 +44,12 @@ module.exports = {
           waitAndClickElement(element)
         }
         break;
+      case 'Compra Programada':
+        {
+          const element = '~Compra\nProgramada'
+          waitAndClickElement(element)
+        }
+        break;
 
       default:
         throw new Error(`O menu "${option}" é invalido`)
