@@ -132,6 +132,34 @@ Scenario('Realizar login com sucesso | Início | Minha compra', async () => {
     testPassed = await meusDadosScreen.checkLogin()
 })
 
+// comprar
+Scenario('Realizar login com sucesso | Comprar | Mundos Cobasi | Amigo Cobasi', async () => {
+    comprarScreen.selectMundosCobasi('Amigo Cobasi')
+    loginScreen.doLogin(data.user)
+    testPassed = await amigoCobasiScreen.checkLogin()
+})
+
+Scenario('Realizar login com sucesso | Comprar | Mundos Cobasi | Serviços Pet', async () => {
+    comprarScreen.selectMundosCobasi('Serviços Pet')
+    servicosScreen.clickLogin()
+    loginScreen.doLogin(data.user)
+    testPassed = await servicosScreen.checkLogin()
+})
+
+Scenario('Realizar login com sucesso | Comprar | Mundos Cobasi | Compra Programada', async () => {
+    comprarScreen.selectMundosCobasi('Compra Programada')
+    loginScreen.doLogin(data.user)
+    testPassed = await compraProgramadaScreen.checkLogin()
+})
+
+Scenario('Realizar login com sucesso | Comprar | Mundos Cobasi | Espaço Pet', async () => {
+    comprarScreen.selectMundosCobasi('Espaço Pet')
+    loginScreen.doLogin(data.user)
+    testPassed = await espacoPetScreen.checkLogin()
+})
+
+
+
 After(async () => {
     if (process.env.AMBIENT === 'remote-android' || process.env.AMBIENT === 'remote-ios') {
         hooks.testPassedOrFail(testPassed)
