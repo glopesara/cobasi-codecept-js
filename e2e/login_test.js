@@ -132,6 +132,13 @@ Scenario('Realizar login com sucesso | Início | Minha compra', async () => {
     testPassed = await meusDadosScreen.checkLogin()
 })
 
+// comprar
+Scenario('Realizar login com sucesso | Comprar | Mundos Cobasi | Amigo Cobasi', async () => {
+    comprarScreen.selectMundosCobasi('Amigo Cobasi')
+    loginScreen.doLogin(data.user)
+    testPassed = await amigoCobasiScreen.checkLogin()
+})
+
 After(async () => {
     if (process.env.AMBIENT === 'remote-android' || process.env.AMBIENT === 'remote-ios') {
         hooks.testPassedOrFail(testPassed)

@@ -22,6 +22,19 @@ module.exports = {
       default:
         throw new Error(`Tab bar "${tabBar}" é invalido`)
     }
+  },
+  selectMundosCobasi(option){
+    switch (option) {
+      case 'Amigo Cobasi':
+          {
+            const element = '~Amigo\nCobasi'
+            I.click(element)
+          }
+        break;
+    
+      default:
+        break;
+    }
   }
   // insert your locators and methods here
 }
